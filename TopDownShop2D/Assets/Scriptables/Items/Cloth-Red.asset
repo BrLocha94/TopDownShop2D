@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95920c9f53023d841a2059f7c1c446a5, type: 3}
+  m_Name: Cloth-Red
+  m_EditorClassIdentifier: 
+  itemType: 2
+  itemSprite: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 2f6d2c031c6d3754bae30bc1f2e741bb, type: 3}
+  itemColor: {r: 1, g: 0, b: 0.13759041, a: 1}
+  itemName: Red Cloth
+  itemPrice: 1
+  itemDescription: An charming simple red cloth
