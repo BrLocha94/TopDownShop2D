@@ -1,7 +1,5 @@
 namespace Project.Structures.Iteraction
 {
-    using System.Collections;
-    using System.Collections.Generic;
     using UnityEngine;
     using Project.Enums;
     using Project.Contracts;

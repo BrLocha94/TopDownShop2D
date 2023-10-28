@@ -117,6 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3413826232613197703}
   - component: {fileID: 5576075111190268881}
+  - component: {fileID: 2947359372730374148}
   - component: {fileID: 3413826232613197702}
   - component: {fileID: 3413826232613197720}
   - component: {fileID: 3413826232613197721}
@@ -159,6 +160,35 @@ MonoBehaviour:
   rigidBody: {fileID: 3413826232613197720}
   cloth: {fileID: 3413826232998605450}
   hat: {fileID: 3413826232614141420}
+--- !u!114 &2947359372730374148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3413826232613197722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14fad7642e9f3a74fa8b296567088368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onIteractionTriggerDirectionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5576075111190268881}
+        m_TargetAssemblyTypeName: Project.Structures.Character.NonPlayableCharacter,
+          Assembly-CSharp
+        m_MethodName: OnDirectionEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  dialogList: []
 --- !u!114 &3413826232613197702
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,13 +1,9 @@
 namespace Project.Core
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
     using UnityEngine;
     using Project.Utils;
     using Project.Enums;
     using Project.Contracts;
-    using Project.Structures.Inventory;
 
     public class GameController : MonoSingleton<GameController>, IReceiver<GameState>
     {

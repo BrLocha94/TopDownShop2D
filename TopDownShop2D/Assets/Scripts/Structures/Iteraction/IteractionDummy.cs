@@ -1,8 +1,6 @@
 namespace Project.Structures.Iteraction
 {
     using Project.Enums;
-    using System.Collections;
-    using System.Collections.Generic;
     using UnityEngine;
 
     public sealed class IteractionDummy : IteractionObjectBase
@@ -12,6 +10,11 @@ namespace Project.Structures.Iteraction
             Debug.Log("TRIGGERED ITERACTION");
 
             base.ExecuteIteraction(direction);
+        }
+
+        protected override void AdvanceIteraction()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

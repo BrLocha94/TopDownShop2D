@@ -1,11 +1,8 @@
 namespace Project.Structures.Iteraction
 {
-    using System.Collections;
-    using System.Collections.Generic;
     using UnityEngine;
     using Project.Utils;
     using Project.Enums;
-    using Project.Core;
 
     [RequireComponent(typeof(Collider2D))]
     [RequireComponent(typeof(Rigidbody2D))]
@@ -18,8 +15,8 @@ namespace Project.Structures.Iteraction
         public virtual void ExecuteIteraction(Direction direction)
         {
             onIteractionTriggerDirectionEvent?.Invoke(direction);
-
-            //NOTIFY
         }
+
+        protected abstract void AdvanceIteraction();
     }
 }
