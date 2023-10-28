@@ -1,4 +1,4 @@
-namespace Project.Structures.Characters
+namespace Project.Structures.Character
 {
     using UnityEngine;
     using Project.Enums;
@@ -10,6 +10,8 @@ namespace Project.Structures.Characters
         [Header("Player")]
         [SerializeField]
         private float moveSpeed = 5f;
+        [SerializeField]
+        private UnityDirectionEvent onDirectionUpdate;
 
         private Direction currentDirection = Direction.NULL;
         private Vector2 moveVector = Vector2.zero;
@@ -87,6 +89,7 @@ namespace Project.Structures.Characters
                 animator.Play("walk_" + nextDirection.ToString().ToLower());
 
             currentDirection = nextDirection;
+            onDirectionUpdate?.Invoke(currentDirection);
 
             UpdateMovimentVector();
         }

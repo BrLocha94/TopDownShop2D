@@ -1,4 +1,4 @@
-namespace Project.Structures.Characters
+namespace Project.Structures.Character
 {
     using System.Collections;
     using System.Collections.Generic;

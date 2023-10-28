@@ -1,4 +1,4 @@
-namespace Project.Structures.Characters
+namespace Project.Structures.Character
 {
     using UnityEngine;
     using Project.Enums;

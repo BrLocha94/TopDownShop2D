@@ -727,6 +727,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d0a40d3ffe77bb49962750cedfd5ac1, type: 3}
+--- !u!1 &6601068213630355691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3413826232613197722, guid: 0632fd0b89e29734da496fd44c9ab452, type: 3}
+  m_PrefabInstance: {fileID: 8429590955700428657}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6601068213630355705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6601068213630355691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923da8ace565554ebfe448c422178fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onIteractionTriggerDirectionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &8429590955700428657
 PrefabInstance:
   m_ObjectHideFlags: 0
