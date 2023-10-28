@@ -11,6 +11,9 @@ namespace Project.Core
 
     public class GameController : MonoSingleton<GameController>, IReceiver<GameState>
     {
+        [SerializeField]
+        private CameraControler cameraControler;
+
         GameState currentGameState = GameState.NULL;
 
         protected override void ExecuteOnAwake()

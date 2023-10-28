@@ -7,6 +7,7 @@ namespace Project.Structures.Characters
 
     public class Player : CharacterBase
     {
+        [Header("Player")]
         [SerializeField]
         private float moveSpeed = 5f;
 
