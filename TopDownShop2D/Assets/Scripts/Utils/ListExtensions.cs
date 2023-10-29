@@ -60,6 +60,24 @@ namespace Project.Utils
             return default;
         }
 
+        public static bool RemoveElement<T>(this List<T> list, T element)
+        {
+            if (list.Count > 0)
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if(list[i].Equals(element))
+                    {
+                        list.RemoveAt(i);
+                        return true;
+                    }
+                }
+            }
+
+            Debug.Log("List is empty");
+            return false;
+        }
+
         public static T PopRandom<T>(this List<T> list)
         {
             if (list.Count > 0)

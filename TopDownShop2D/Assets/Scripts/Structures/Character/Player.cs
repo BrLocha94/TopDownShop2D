@@ -21,10 +21,12 @@ namespace Project.Structures.Character
             if (item == null)
             {
                 cloth.color = Color.white;
+                cloth.gameObject.SetActive(false);
                 return;
             }
 
             cloth.color = item.GetItemColor();
+            cloth.gameObject.SetActive(true);
         }
 
         private void OnHatEquiped(Item item)
@@ -35,11 +37,16 @@ namespace Project.Structures.Character
                 return;
             }
 
-            hat.gameObject.SetActive(true);
             hat.sprite = item.GetItemSprite();
+            hat.gameObject.SetActive(true);
         }
 
         private void FixedUpdate()
+        {
+            rigidBody.velocity = moveVector * moveSpeed * Time.fixedDeltaTime;
+        }
+
+        private void Update()
         {
             if (currentGameState != GameState.RUNNING)
             {
@@ -72,11 +79,6 @@ namespace Project.Structures.Character
             }
 
             UpdateDirection(Direction.NULL);
-        }
-
-        private void Update()
-        {
-            rigidBody.velocity = moveVector * moveSpeed * Time.deltaTime;
         }
 
         protected override void UpdateDirection(Direction nextDirection)

@@ -296,7 +296,7 @@ MonoBehaviour:
   rigidBody: {fileID: 5332995661055633901}
   cloth: {fileID: 5332995661441846527}
   hat: {fileID: 5332995661054493593}
-  moveSpeed: 800
+  moveSpeed: 250
   onDirectionUpdate:
     m_PersistentCalls:
       m_Calls:

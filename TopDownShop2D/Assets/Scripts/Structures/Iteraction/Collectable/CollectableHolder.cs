@@ -1,7 +1,8 @@
-namespace Project.Structures.Iteraction.Dialog
+namespace Project.Structures.Iteraction.Collectable
 {
     using System;
     using Project.Structures.Inventory;
+    using Project.Structures.Iteraction.Dialog;
 
     [Serializable]
 
