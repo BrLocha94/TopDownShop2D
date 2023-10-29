@@ -13,8 +13,8 @@ namespace Project.UI.Windows
     public class ShopWindow : WindowBase
     {
         // Grid tile prefab to instantiate
-        //[SerializeField]
-        //private InventoryItemHolder holderPrefab;
+        [SerializeField]
+        private InventoryItemHolder holderPrefab;
 
         // Grid pivot
         [SerializeField]
@@ -41,10 +41,10 @@ namespace Project.UI.Windows
         [SerializeField]
         private Vector3 offScale;
 
-        //private List<InventoryItemHolder> holdersList = new List<InventoryItemHolder>();
+        private List<InventoryItemHolder> holdersList = new List<InventoryItemHolder>();
 
         private Inventory inventory = null;
-        //private InventoryItemHolder currentSelectedItem = null;
+        private InventoryItemHolder currentSelectedItem = null;
 
         Coroutine currentPopRoutine = null;
 
@@ -59,6 +59,7 @@ namespace Project.UI.Windows
 
             //itemDetailsText.text = string.Empty;
             //confimButton.SetActive(false);
+            
             gameObject.SetActive(true);
 
             currentState = WindowState.ANIMATING;
@@ -74,14 +75,12 @@ namespace Project.UI.Windows
             if (currentPopRoutine != null)
                 StopCoroutine(currentPopRoutine);
 
-            /*
             for (int i = holdersList.Count - 1; i >= 0; i--)
             {
                 InventoryItemHolder holder = holdersList[i];
                 holdersList.RemoveAt(i);
                 Destroy(holder.gameObject);
             }
-            */
 
             currentState = WindowState.ANIMATING;
 
@@ -93,15 +92,13 @@ namespace Project.UI.Windows
         {
             base.FinishedTurnOn();
 
-            /*
             foreach (InventoryItem item in inventory.GetInventoryItems())
             {
-                //InventoryItemHolder holder = Instantiate(holderPrefab, parent);
-                //holdersList.Add(holder);
-                //holder.Initialize(item);
-                //holder.onItemRequested += OnItemRequested;
+                InventoryItemHolder holder = Instantiate(holderPrefab, parent);
+                holdersList.Add(holder);
+                holder.Initialize(item);
+                holder.onItemRequested += OnItemRequested;
             }
-            */
         }
 
         protected override void FinishedTurnOff()
@@ -118,6 +115,35 @@ namespace Project.UI.Windows
         public void SetGridInfo(Inventory inventory)
         {
             this.inventory = inventory;
+        }
+
+        private void OnItemRequested(InventoryItemHolder holder)
+        {
+            if (currentSelectedItem == holder) return;
+
+            if (currentSelectedItem != null)
+                currentSelectedItem.UnselectInventoryItem();
+
+            currentSelectedItem = holder;
+            holder.SelectInventoryItem();
+
+            Item item = holder.inventoryItem.item;
+            //itemDetailsText.text = $"{item.GetItemName()} : {item.GetItemDescription()}";
+
+            //confimButton.SetActive(true);
+        }
+
+        public void ConfirmBuy()
+        {
+            if (currentState != WindowState.ON) return;
+
+            if (currentSelectedItem == null) return;
+
+            Debug.Log($"Try to buy {currentSelectedItem.inventoryItem.item.GetItemName()}");
+
+            //bool sucess = DataController.Instance.BuyItem(currentSelectedItem.inventoryItem);
+
+            //Debug.Log($"Sucess on Buy = {sucess}");
         }
     }
 }

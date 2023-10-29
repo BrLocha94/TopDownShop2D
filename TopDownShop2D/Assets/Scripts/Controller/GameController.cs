@@ -87,7 +87,7 @@ namespace Project.Core
 
             currentInventory = inventoryHolder;
 
-            //shopWindow.SetGridInfo(inventoryHolder.inventory);
+            shopWindow.SetGridInfo(inventoryHolder.inventory);
             shopWindow.onTurnOffFinishEvent += OnShopCloseCallback;
             shopWindow.TurnOn();
 
