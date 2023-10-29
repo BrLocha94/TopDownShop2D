@@ -14,6 +14,22 @@ namespace Project.Structures.Character
         [SerializeField]
         private InventoryHolder inventoryHolder;
 
+        private void Awake()
+        {
+            if (inventoryHolder.inventory == null)
+            {
+                List<InventoryItem> list = new List<InventoryItem>();
+
+                foreach (Item item in itemList)
+                {
+                    list.Add(new InventoryItem(item, item.GetItemPrice()));
+                }
+
+                Inventory inventory = new Inventory(list);
+                inventoryHolder.inventory = inventory;
+            }
+        }
+
         public void OpenShop()
         {
             if (itemList.Count == 0)

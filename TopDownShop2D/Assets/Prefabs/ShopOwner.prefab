@@ -137,7 +137,33 @@ MonoBehaviour:
   rigidBody: {fileID: 7613115064623375523}
   cloth: {fileID: 7613115064204542385}
   hat: {fileID: 7613115064626499287}
-  itemList: []
+  itemList:
+  - {fileID: 11400000, guid: d53cdb6f3868131409dc702d59516234, type: 2}
+  - {fileID: 11400000, guid: a7f948a5ab26e4147b9f1e2e81c90729, type: 2}
+  - {fileID: 11400000, guid: daf8a493d7658db408495c0670779473, type: 2}
+  - {fileID: 11400000, guid: 287e3ce0dc060ef4484c9974f9346da4, type: 2}
+  - {fileID: 11400000, guid: f74147857bb8a7f43a1d5531bdb238ad, type: 2}
+  - {fileID: 11400000, guid: 76f7b734b0ad99741a21afeb535fe13f, type: 2}
+  - {fileID: 11400000, guid: 7f35acd753dd2f84699f1ec084550a4a, type: 2}
+  - {fileID: 11400000, guid: d6346ebcc82e48c4997155ba8c6339da, type: 2}
+  - {fileID: 11400000, guid: dc30bb5feedb34a41b2985642d430767, type: 2}
+  inventoryHolder:
+    onInventoryClosedCallback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7935466463700183871}
+          m_TargetAssemblyTypeName: Project.Structures.Iteraction.Dialog.DialogableObject,
+            Assembly-CSharp
+          m_MethodName: AdvanceIteraction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &7935466463700183871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,7 +179,7 @@ MonoBehaviour:
   onIteractionTriggerDirectionEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8946756037909833247}
         m_TargetAssemblyTypeName: Project.Structures.Character.NonPlayableCharacter,
           Assembly-CSharp
         m_MethodName: OnDirectionEvent
@@ -166,7 +192,40 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  dialogList: []
+  dialogList:
+  - dialog: {fileID: 11400000, guid: c7e9f132a2981c641821e54a78fc1433, type: 2}
+    onDialogFinishCallback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8946756037909833247}
+          m_TargetAssemblyTypeName: Project.Structures.Character.ShopOwner, Assembly-CSharp
+          m_MethodName: OpenShop
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - dialog: {fileID: 11400000, guid: 786999aeb3911e744bbda324a57d669e, type: 2}
+    onDialogFinishCallback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7935466463700183871}
+          m_TargetAssemblyTypeName: Project.Structures.Iteraction.Dialog.DialogableObject,
+            Assembly-CSharp
+          m_MethodName: AdvanceIteraction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &7613115064623375549
 MonoBehaviour:
   m_ObjectHideFlags: 0

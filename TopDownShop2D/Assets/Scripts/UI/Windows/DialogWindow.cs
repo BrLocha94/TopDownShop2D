@@ -94,12 +94,14 @@ namespace Project.UI.Windows
             base.FinishedTurnOff();
         }
 
-        public void SetDialog(Dialog dialog)
+        public void SetDialog(Dialog dialog, bool changeOwner = true)
         {
             ClearDialog();
 
             currentDialog = dialog;
-            ownerName.text = currentDialog.GetDialogOwner;
+
+            if(changeOwner)
+                ownerName.text = currentDialog.GetDialogOwner;
 
             if (currentState == WindowState.ON)
             {

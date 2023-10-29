@@ -14,6 +14,8 @@ namespace Project.Core
         private CameraControler cameraControler;
         [SerializeField]
         private DialogWindow dialogWindow;
+        [SerializeField]
+        private ShopWindow shopWindow;
 
         GameState currentGameState = GameState.NULL;
 
@@ -86,8 +88,8 @@ namespace Project.Core
             currentInventory = inventoryHolder;
 
             //shopWindow.SetGridInfo(inventoryHolder.inventory);
-            //shopWindow.onTurnOffFinishEvent += OnShopCloseCallback;
-            //shopWindow.TurnOn();
+            shopWindow.onTurnOffFinishEvent += OnShopCloseCallback;
+            shopWindow.TurnOn();
 
             StateMachineController.ExecuteTransition(GameState.SHOP);
         }
@@ -97,7 +99,7 @@ namespace Project.Core
             InventoryHolder holder = currentInventory;
             currentInventory = null;
 
-            //shopWindow.onTurnOffFinishEvent -= OnShopCloseCallback;
+            shopWindow.onTurnOffFinishEvent -= OnShopCloseCallback;
 
             StateMachineController.ExecuteTransition(GameState.DIALOG);
             holder.onInventoryClosedCallback?.Invoke();
