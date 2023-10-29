@@ -1,12 +1,10 @@
 namespace Project.Structures.Inventory
 {
-    using System;
-    using System.Collections.Generic;
-    using UnityEngine;
+    using UnityEngine.Events;
 
     public class InventoryHolder
     {
         public Inventory inventory;
-        public Action onInventoryClosedCallback;
+        public UnityEvent onInventoryClosedCallback;
     }
 }

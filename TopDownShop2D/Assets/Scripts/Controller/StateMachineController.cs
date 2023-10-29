@@ -8,7 +8,7 @@ namespace Project.Core
         public delegate void OnGameStateChangeHandler(GameState gameState);
         public static event OnGameStateChangeHandler onGameStateChangeEvent;
 
-        private static GameState lastGameState = GameState.NULL;
+        private static GameState _lastGameState = GameState.NULL;
         private static GameState _currentGameState = GameState.NULL;
 
         public static GameState CurrentGameState
@@ -19,6 +19,7 @@ namespace Project.Core
             }
             private set
             {
+                _lastGameState = _currentGameState;
                 _currentGameState = value;
                 onGameStateChangeEvent?.Invoke(_currentGameState);
             }
@@ -28,7 +29,7 @@ namespace Project.Core
 
         public static void InitializeStateMachine()
         {
-            lastGameState = GameState.NULL;
+            _lastGameState = GameState.NULL;
             CurrentGameState = GameState.NULL;
         }
 
@@ -42,7 +43,7 @@ namespace Project.Core
                 return;
             }
 
-            lastGameState = _currentGameState;
+            _lastGameState = _currentGameState;
             CurrentGameState = nextState;
         }
 
@@ -59,7 +60,22 @@ namespace Project.Core
                     break;
 
                 case GameState.RUNNING:
-                    return true;
+                    if (nextState == GameState.DIALOG) return true;
+                    if (nextState == GameState.INVENTORY) return true;
+                    break;
+
+                case GameState.DIALOG:
+                    if (nextState == GameState.RUNNING) return true;
+                    if (nextState == GameState.SHOP) return true;
+                    break;
+
+                case GameState.INVENTORY:
+                    if (nextState == GameState.RUNNING) return true;
+                    break;
+
+                case GameState.SHOP:
+                    if (nextState == GameState.DIALOG) return true;
+                    break;
             }
 
             return false;

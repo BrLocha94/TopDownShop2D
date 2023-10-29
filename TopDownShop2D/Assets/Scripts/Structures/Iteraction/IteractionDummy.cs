@@ -12,7 +12,7 @@ namespace Project.Structures.Iteraction
             base.ExecuteIteraction(direction);
         }
 
-        protected override void AdvanceIteraction()
+        public override void AdvanceIteraction()
         {
             throw new System.NotImplementedException();
         }

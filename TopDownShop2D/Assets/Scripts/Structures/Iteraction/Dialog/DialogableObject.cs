@@ -3,6 +3,7 @@ namespace Project.Structures.Iteraction.Dialog
     using Project.Enums;
     using System.Collections.Generic;
     using UnityEngine;
+    using Project.Core;
 
     public sealed class DialogableObject : IteractionObjectBase
     {
@@ -11,14 +12,6 @@ namespace Project.Structures.Iteraction.Dialog
         private List<DialogHolder> dialogList = new List<DialogHolder>();
 
         private int dialogIndex = 0;
-
-        private void Awake()
-        {
-            foreach (DialogHolder dialogHolder in dialogList)
-            {
-                dialogHolder.onDialogFinishCallback += AdvanceIteraction;
-            }
-        }
 
         public override void ExecuteIteraction(Direction direction)
         {
@@ -32,20 +25,20 @@ namespace Project.Structures.Iteraction.Dialog
 
             dialogIndex = 0;
 
-            Debug.Log("Executed dialogs");
+            GameController.Instance.ExecuteSimpleDialog(dialogList[dialogIndex]);
         }
 
-        protected override void AdvanceIteraction()
+        public override void AdvanceIteraction()
         {
             dialogIndex++;
             if (dialogIndex >= dialogList.Count)
             {
                 dialogIndex = 0;
-                //CLOSE DIALOG
+                GameController.Instance.CloseDialog();
                 return;
             }
 
-            //EXECUTE CURRENT DIALOG
+            GameController.Instance.ExecuteSimpleDialog(dialogList[dialogIndex]);
         }
     }
 }

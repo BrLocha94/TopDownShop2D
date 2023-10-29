@@ -22,7 +22,7 @@ namespace Project.Structures.Character
                 return;
             }
 
-            //OpenShop????
+            GameController.Instance.OpenShop(inventoryHolder);
         }
     }
 }

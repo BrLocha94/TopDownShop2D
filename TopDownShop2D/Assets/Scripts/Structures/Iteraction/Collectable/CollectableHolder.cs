@@ -1,6 +1,7 @@
 namespace Project.Structures.Iteraction.Collectable
 {
     using System;
+    using UnityEngine.Events;
     using Project.Structures.Inventory;
     using Project.Structures.Iteraction.Dialog;
 
@@ -10,6 +11,6 @@ namespace Project.Structures.Iteraction.Collectable
     {
         public Item item;
         public Dialog dialog;
-        public Action onCollectFinishCallback;
+        public UnityEvent onCollectFinishCallback;
     }
 }

@@ -54,8 +54,6 @@ namespace Project.Utils
 
         private IEnumerator TypeRoutine()
         {
-            AdjustLines();
-
             targetText.maxVisibleCharacters = 0;
 
             while(targetText.maxVisibleCharacters < targetText.text.Length)
@@ -65,22 +63,6 @@ namespace Project.Utils
             }
 
             typeRoutine = null;
-        }
-
-        private void AdjustLines()
-        {
-            string[] lines = targetText.text.Split("\n");
-            int lineCount = lines.Length;
-
-            switch (lineCount)
-            {
-                case 0:
-                    targetText.verticalAlignment = VerticalAlignmentOptions.Middle;
-                    break;
-                case 1:
-                    targetText.verticalAlignment = VerticalAlignmentOptions.Top;
-                    break;
-            }
         }
     }
 }

@@ -17,6 +17,6 @@ namespace Project.Structures.Iteraction
             onIteractionTriggerDirectionEvent?.Invoke(direction);
         }
 
-        protected abstract void AdvanceIteraction();
+        public abstract void AdvanceIteraction();
     }
 }

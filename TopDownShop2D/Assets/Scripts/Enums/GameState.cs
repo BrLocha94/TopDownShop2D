@@ -4,6 +4,9 @@ namespace Project.Enums
     {
         NULL,
         INITIALIZING,
-        RUNNING
+        RUNNING,
+        DIALOG,
+        SHOP,
+        INVENTORY
     }
 }

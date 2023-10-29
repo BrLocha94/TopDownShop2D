@@ -10,14 +10,6 @@ namespace Project.Structures.Iteraction.Collectable
         [SerializeField]
         private CollectableHolder itemToCollect = null;
 
-        private void Awake()
-        {
-            if(itemToCollect != null)
-            {
-                itemToCollect.onCollectFinishCallback += AdvanceIteraction;
-            }
-        }
-
         public override void ExecuteIteraction(Direction direction)
         {
             if (itemToCollect == null)
@@ -31,7 +23,7 @@ namespace Project.Structures.Iteraction.Collectable
             Debug.Log("Executed collectable");
         }
 
-        protected override void AdvanceIteraction()
+        public override void AdvanceIteraction()
         {
             Debug.Log("finished collectable");
         }

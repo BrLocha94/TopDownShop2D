@@ -53,8 +53,6 @@ namespace Project.UI.Windows
             transform.localPosition = offPosition;
             gameObject.SetActive(true);
 
-            ClearDialog();
-
             currentState = WindowState.ANIMATING;
 
             currentPopRoutine = this.MoveRoutine(transform, transform.localPosition, onPosition,
@@ -101,11 +99,14 @@ namespace Project.UI.Windows
             ClearDialog();
 
             currentDialog = dialog;
+            ownerName.text = currentDialog.GetDialogOwner;
 
             if (currentState == WindowState.ON)
             {
                 dialogRoutine = StartCoroutine(DialogRoutine(() => onDialogFinishEvent?.Invoke()));
             }
+            else
+                TurnOn();
         }
 
         public void ClearDialog()
@@ -118,8 +119,6 @@ namespace Project.UI.Windows
 
         IEnumerator DialogRoutine(Action callback)
         {
-            ownerName.text = currentDialog.GetDialogOwner;
-
             string[] texts = currentDialog.GetDialogTexts;
 
             int i = 0;
@@ -133,6 +132,7 @@ namespace Project.UI.Windows
                 if (dialogText.isExecuting)
                 {
                     dialogText.StopCurrentTyping();
+                    yield return new WaitForEndOfFrame();
                     yield return new WaitWhile(() => !Input.GetKeyDown(KeyCode.E));
                 }
 
