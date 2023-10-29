@@ -1,12 +1,7 @@
 namespace Project.Core
 {
     using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using Project.Utils;
     using Project.Structures.Inventory;
-    using Project.Enums;
 
     public static class DataController
     {
@@ -42,7 +37,16 @@ namespace Project.Core
 
         public static bool SellItem(InventoryItem item)
         {
-            // Implement sell logic
+            bool result = playerInventory.RemoveItem(item);
+
+            if (result)
+            {
+                playerMoney += item.price;
+                onPlayerMoneyChanged?.Invoke(playerMoney);
+
+                onPlayerInventoryChanged?.Invoke(playerInventory);
+                return true;
+            }
 
             return false;
         }
