@@ -12,5 +12,9 @@ namespace Project.Structures.Iteraction.Dialog
 
         public string GetDialogOwner => owner;
         public string[] GetDialogTexts => texts;
+        public void SetForceDialogTexts(string [] newTexts)
+        {
+            texts = newTexts;
+        }
     }
 }

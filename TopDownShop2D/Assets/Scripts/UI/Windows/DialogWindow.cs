@@ -40,6 +40,14 @@ namespace Project.UI.Windows
         Coroutine dialogRoutine = null;
         Dialog currentDialog = null;
 
+        bool forceSkip = false;
+        bool isTyping = false;
+
+        private void Awake()
+        {
+            dialogText.onTypeEffectEnd += () => isTyping = false;
+        }
+
         public override void TurnOn()
         {
             if (currentState != WindowState.OFF) return;
@@ -87,20 +95,21 @@ namespace Project.UI.Windows
 
         protected override void FinishedTurnOff()
         {
-            ClearDialog();
+            ClearDialog(true);
 
             gameObject.SetActive(false);
 
             base.FinishedTurnOff();
         }
 
-        public void SetDialog(Dialog dialog, bool changeOwner = true)
+        public void SetDialog(Dialog dialog, bool changeOwner = true, bool forceSkip = false)
         {
-            ClearDialog();
+            ClearDialog(changeOwner);
 
             currentDialog = dialog;
+            this.forceSkip = forceSkip;
 
-            if(changeOwner)
+            if (changeOwner)
                 ownerName.text = currentDialog.GetDialogOwner;
 
             if (currentState == WindowState.ON)
@@ -111,9 +120,11 @@ namespace Project.UI.Windows
                 TurnOn();
         }
 
-        public void ClearDialog()
+        private void ClearDialog(bool changeOwner)
         {
-            ownerName.text = string.Empty;
+            if(changeOwner)
+                ownerName.text = string.Empty;
+    
             dialogText.ClearText();
 
             currentDialog = null;
@@ -128,8 +139,15 @@ namespace Project.UI.Windows
             while (i < texts.Length)
             {
                 dialogText.StartTypingText(texts[i]);
+                isTyping = true;
 
-                yield return new WaitWhile(() => !Input.GetKeyDown(KeyCode.E));
+                if (forceSkip)
+                {
+                    yield return new WaitWhile(() => isTyping);
+                    yield return new WaitForSeconds(1f);
+                }
+                else
+                    yield return new WaitWhile(() => !Input.GetKeyDown(KeyCode.E));
 
                 if (dialogText.isExecuting)
                 {

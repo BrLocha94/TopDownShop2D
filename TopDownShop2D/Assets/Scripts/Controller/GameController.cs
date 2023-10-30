@@ -22,6 +22,7 @@ namespace Project.Core
         GameState currentGameState = GameState.NULL;
 
         DialogHolder currentDialog = null;
+        DialogHolder currentShopDialog = null;
         InventoryHolder currentInventory = null;
 
         protected override void ExecuteOnAwake()
@@ -77,6 +78,33 @@ namespace Project.Core
 
             dialogWindow.onDialogFinishEvent -= OnSimpleDialogFinishEvent;
             holder.onDialogFinishCallback?.Invoke();
+        }
+
+        public void ExecuteShopDialog(DialogHolder dialogHolder)
+        {
+            // Cant open player inventory without and open dialog
+            if (currentGameState != GameState.SHOP) return;
+
+            // Cant Execute new dialog while last is still in screen 
+            if (currentShopDialog != null) return;
+
+            currentShopDialog = dialogHolder;
+
+            dialogWindow.SetDialog(dialogHolder.dialog, false, true);
+            dialogWindow.onDialogFinishEvent += OnShopDialogFinishEvent;
+
+            StateMachineController.ExecuteTransition(GameState.SHOP_DIALOG);
+        }
+
+        private void OnShopDialogFinishEvent()
+        {
+            DialogHolder holder = currentShopDialog;
+            currentShopDialog = null;
+
+            dialogWindow.onDialogFinishEvent -= OnShopDialogFinishEvent;
+            holder.onDialogFinishCallback?.Invoke();
+
+            StateMachineController.ExecuteTransition(GameState.SHOP);
         }
 
         public void OpenShop(InventoryHolder inventoryHolder)

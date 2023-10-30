@@ -75,6 +75,12 @@ namespace Project.Core
 
                 case GameState.SHOP:
                     if (nextState == GameState.DIALOG) return true;
+                    if (nextState == GameState.SHOP_DIALOG) return true;
+                    break;
+
+                case GameState.SHOP_DIALOG:
+                    if (nextState == GameState.SHOP) return true;
+                    if (nextState == GameState.RUNNING) return true;
                     break;
             }
 

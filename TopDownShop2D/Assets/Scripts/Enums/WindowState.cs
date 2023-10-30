@@ -5,6 +5,7 @@ namespace Project.Enums
         NULL,
         ON,
         OFF,
-        ANIMATING
+        ANIMATING,
+        WAITING
     }
 }

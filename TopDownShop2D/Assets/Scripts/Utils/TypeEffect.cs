@@ -1,5 +1,6 @@
 namespace Project.Utils
 {
+    using System;
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
@@ -7,6 +8,8 @@ namespace Project.Utils
 
     public class TypeEffect : MonoBehaviour
     {
+        public Action onTypeEffectEnd;
+
         [SerializeField]
         private TextMeshProUGUI targetText;
         [SerializeField]
@@ -50,6 +53,7 @@ namespace Project.Utils
             }
 
             targetText.maxVisibleCharacters = targetText.text.Length;
+            onTypeEffectEnd?.Invoke();
         }
 
         private IEnumerator TypeRoutine()
@@ -63,6 +67,7 @@ namespace Project.Utils
             }
 
             typeRoutine = null;
+            onTypeEffectEnd?.Invoke();
         }
     }
 }

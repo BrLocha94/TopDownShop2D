@@ -7,6 +7,7 @@ namespace Project.Enums
         RUNNING,
         DIALOG,
         SHOP,
-        INVENTORY
+        INVENTORY,
+        SHOP_DIALOG
     }
 }

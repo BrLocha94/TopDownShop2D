@@ -279,10 +279,10 @@ RectTransform:
   m_Father: {fileID: 8384271125795777294}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 628.3334, y: -438.5}
-  m_SizeDelta: {x: 1216.6667, y: 523}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8384271124697343535
 CanvasRenderer:
@@ -475,10 +475,10 @@ RectTransform:
   m_Father: {fileID: 8384271125795777294}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 628.3334, y: -114.5}
-  m_SizeDelta: {x: 1216.6667, y: 125}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8384271125745448893
 CanvasRenderer:
@@ -550,6 +550,7 @@ GameObject:
   - component: {fileID: 8384271125795777280}
   - component: {fileID: 8384271125795777295}
   - component: {fileID: 8384271125795777281}
+  - component: {fileID: 8279844756406606466}
   - component: {fileID: 8384271125795777282}
   m_Layer: 5
   m_Name: ShopWindow
@@ -557,7 +558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8384271125795777294
 RectTransform:
   m_ObjectHideFlags: 0
@@ -631,9 +632,110 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f116d239e06fd469da494dcfa37d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogConfirmBuy:
+    dialog: {fileID: 11400000, guid: 3af914387f3bd3949ad9d7a157f55d13, type: 2}
+    onDialogFinishCallback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8384271125795777281}
+          m_TargetAssemblyTypeName: Project.UI.Windows.ShopWindow, Assembly-CSharp
+          m_MethodName: OnBuyConfirmMessageFinish
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  dialogCongratsBuy:
+    dialog: {fileID: 11400000, guid: 4207e816ce8552e42a6d17e32e6d758a, type: 2}
+    onDialogFinishCallback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8384271125795777281}
+          m_TargetAssemblyTypeName: Project.UI.Windows.ShopWindow, Assembly-CSharp
+          m_MethodName: OnBuyCongratsMessageFinish
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  dialogDeniedBuy:
+    dialog: {fileID: 11400000, guid: f3389fadeeb0d0849b212abc8baadee0, type: 2}
+    onDialogFinishCallback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8384271125795777281}
+          m_TargetAssemblyTypeName: Project.UI.Windows.ShopWindow, Assembly-CSharp
+          m_MethodName: OnBuyDeniedMessageFinish
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  dialogConfirmSell:
+    dialog: {fileID: 11400000, guid: 7a953f95b598fa54f81d845928a1e0d7, type: 2}
+    onDialogFinishCallback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8384271125795777281}
+          m_TargetAssemblyTypeName: Project.UI.Windows.ShopWindow, Assembly-CSharp
+          m_MethodName: OnSellConfirmMessageFinish
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  dialogCongratsSell:
+    dialog: {fileID: 11400000, guid: 5d2d06157197dc54aab38da4809f52e3, type: 2}
+    onDialogFinishCallback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8384271125795777281}
+          m_TargetAssemblyTypeName: Project.UI.Windows.ShopWindow, Assembly-CSharp
+          m_MethodName: OnSellCongratsMessageFinish
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  dialogDeniedSell:
+    dialog: {fileID: 11400000, guid: 87c1039bacca0e646b396300c4eda428, type: 2}
+    onDialogFinishCallback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8384271125795777281}
+          m_TargetAssemblyTypeName: Project.UI.Windows.ShopWindow, Assembly-CSharp
+          m_MethodName: OnSellDeniedMessageFinish
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   holderPrefab: {fileID: 4011020590864877170, guid: 853bde94281d1f64ea8b56c3bc4cbe4c, type: 3}
   parent: {fileID: 4985042620934033975}
-  confimButton: {fileID: 0}
   turnOnCurve:
     serializedVersion: 2
     m_Curve:
@@ -686,6 +788,33 @@ MonoBehaviour:
     m_RotationOrder: 4
   turnOffTime: 0.4
   offScale: {x: 0, y: 0, z: 0}
+--- !u!114 &8279844756406606466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8384271125795777293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8f57af432604704c8589aa85b8bf0aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onReceive:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8384271125795777281}
+        m_TargetAssemblyTypeName: Project.UI.Windows.ShopWindow, Assembly-CSharp
+        m_MethodName: ReceiveUpdate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8384271125795777282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -751,7 +880,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -107.100006, y: -3.6743586e-10}
-  m_SizeDelta: {x: 126.26904, y: 125}
+  m_SizeDelta: {x: 0, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8384271125813590107
 CanvasRenderer:
