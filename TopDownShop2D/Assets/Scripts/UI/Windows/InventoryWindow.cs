@@ -7,6 +7,7 @@ namespace Project.UI.Windows
     using Project.Utils;
     using Project.Core;
     using TMPro;
+    using UnityEngine.UI;
 
     public class InventoryWindow : WindowBase
     {
@@ -17,6 +18,9 @@ namespace Project.UI.Windows
         // Grid pivot
         [SerializeField]
         private Transform parent;
+
+        [SerializeField]
+        private ScrollRect scrollRect;
 
         [SerializeField]
         private InventoryItemHolder equipedCloth;
@@ -173,6 +177,8 @@ namespace Project.UI.Windows
 
             equipedCloth.onItemRequested += OnEquipSlotSelected;
             equipedHat.onItemRequested += OnEquipSlotSelected;
+
+            scrollRect.verticalNormalizedPosition = 1;
         }
 
         protected override void FinishedTurnOff()

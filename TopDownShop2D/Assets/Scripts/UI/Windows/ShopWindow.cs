@@ -35,6 +35,8 @@ namespace Project.UI.Windows
         // Grid pivot
         [SerializeField]
         private Transform parent;
+        [SerializeField]
+        private ScrollRect scrollRect;
 
         [Header("Pop animation config")]
         [SerializeField]
@@ -121,6 +123,8 @@ namespace Project.UI.Windows
                 holder.Initialize(item);
                 holder.onItemRequested += OnItemRequested;
             }
+
+            scrollRect.verticalNormalizedPosition = 1;
         }
 
         protected override void FinishedTurnOff()

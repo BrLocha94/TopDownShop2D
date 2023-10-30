@@ -736,6 +736,7 @@ MonoBehaviour:
           m_CallState: 2
   holderPrefab: {fileID: 4011020590864877170, guid: 853bde94281d1f64ea8b56c3bc4cbe4c, type: 3}
   parent: {fileID: 4985042620934033975}
+  scrollRect: {fileID: 5305320731399671497}
   turnOnCurve:
     serializedVersion: 2
     m_Curve:

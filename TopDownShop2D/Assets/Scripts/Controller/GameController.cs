@@ -1,5 +1,6 @@
 namespace Project.Core
 {
+    using System;
     using UnityEngine;
     using Project.Utils;
     using Project.Enums;
@@ -151,6 +152,23 @@ namespace Project.Core
             currentInventory = inventoryHolder;
 
             shopWindow.SetGridInfo(inventoryHolder.inventory);
+            shopWindow.onTurnOffFinishEvent += OnShopCloseCallback;
+            shopWindow.TurnOn();
+
+            StateMachineController.ExecuteTransition(GameState.SHOP);
+        }
+
+        public void OpenShopToSell(InventoryHolder inventoryHolder)
+        {
+            // Cant open an shop without and open dialog 
+            if (currentGameState != GameState.DIALOG) return;
+
+            // Cant open an shop with an active one running
+            if (currentInventory != null) return;
+
+            currentInventory = inventoryHolder;
+
+            shopWindow.SetGridInfo(inventoryHolder.inventory, false);
             shopWindow.onTurnOffFinishEvent += OnShopCloseCallback;
             shopWindow.TurnOn();
 

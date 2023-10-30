@@ -44,14 +44,26 @@ namespace Project.Core
             return true;
         }
 
-        public static bool SellItem(InventoryItem item)
+        public static bool SellItem(InventoryItem inventoryItem)
         {
-            bool result = playerInventory.RemoveItem(item);
+            bool result = playerInventory.RemoveItem(inventoryItem);
 
             if (result)
             {
-                playerMoney += item.price;
+                playerMoney += inventoryItem.price;
                 onPlayerMoneyChanged?.Invoke(playerMoney);
+
+                if (equipedCloth != null)
+                {
+                    if (inventoryItem.item.Equals(equipedCloth))
+                        UnequipItem(ItemType.Cloth);
+                }
+
+                if(equipedHat != null)
+                {
+                    if (inventoryItem.item.Equals(equipedHat))
+                        UnequipItem(ItemType.Hat);
+                }
 
                 onPlayerInventoryChanged?.Invoke(playerInventory);
                 return true;

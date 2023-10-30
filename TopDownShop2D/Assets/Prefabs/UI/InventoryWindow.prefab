@@ -1359,6 +1359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holderPrefab: {fileID: 297506241841909790, guid: 48ff182c32800e142be17ebeb1e591d2, type: 3}
   parent: {fileID: 8805974699565441487}
+  scrollRect: {fileID: 8805974700376850226}
   equipedCloth: {fileID: 5624157969344728157}
   equipedHat: {fileID: 6295423050655005322}
   itemDetailsText: {fileID: 8805974700314374767}

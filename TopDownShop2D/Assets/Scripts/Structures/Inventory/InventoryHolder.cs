@@ -8,5 +8,10 @@ namespace Project.Structures.Inventory
     {
         public Inventory inventory;
         public UnityEvent onInventoryClosedCallback;
+
+        public void ForceInventory(Inventory newInventory)
+        {
+            inventory = newInventory;
+        }
     }
 }

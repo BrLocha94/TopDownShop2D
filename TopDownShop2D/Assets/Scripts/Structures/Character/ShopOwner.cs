@@ -13,6 +13,8 @@ namespace Project.Structures.Character
         private List<Item> itemList = new List<Item>();
         [SerializeField]
         private InventoryHolder inventoryHolder;
+        [SerializeField]
+        private InventoryHolder playerInventoryHolder;
 
         private void Awake()
         {
@@ -39,6 +41,14 @@ namespace Project.Structures.Character
             }
 
             GameController.Instance.OpenShop(inventoryHolder);
+        }
+
+        public void OpenShopToSell()
+        {
+            var playerInventory = DataController.GetPlayerInventory();
+            playerInventoryHolder.ForceInventory(playerInventory);
+
+            GameController.Instance.OpenShopToSell(playerInventoryHolder);
         }
     }
 }
