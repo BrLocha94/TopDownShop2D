@@ -25,6 +25,8 @@ namespace Project.Core
         private GameObject fade;
         [SerializeField]
         private DialogHolder helpDialog;
+        [SerializeField]
+        private DialogHolder tutorialDialog;
 
         GameState currentGameState = GameState.NULL;
 
@@ -45,6 +47,28 @@ namespace Project.Core
             dialogWindow.onTurnOffFinishEvent += OnDialogWindowCloseEvent;
 
             this.InvokeAfterFrame(() => StateMachineController.ExecuteTransition(GameState.INITIALIZING));
+        }
+
+        private void OnTutorialStarted()
+        {
+            if (currentGameState != GameState.INITIALIZING)
+                return;
+
+            dialogWindow.SetDialog(tutorialDialog.dialog);
+            dialogWindow.onDialogFinishEvent += OnTutorialDialogFinishEvent;
+
+            fade.SetActive(true);
+
+            StateMachineController.ExecuteTransition(GameState.TUTORIAL);
+        }
+
+        private void OnTutorialDialogFinishEvent()
+        {
+            dialogWindow.onTurnOffFinishEvent -= OnTutorialDialogFinishEvent;
+            dialogWindow.SetDialog(helpDialog.dialog);
+            dialogWindow.onDialogFinishEvent += OnHelpDialogFinishEvent;
+
+            StateMachineController.ExecuteTransition(GameState.HELP);
         }
 
         public void OnHelpClicked()
@@ -217,7 +241,7 @@ namespace Project.Core
             if (currentGameState == GameState.INITIALIZING)
             {
                 DataController.Initialize();
-                this.Invoke(0.5f, () => StateMachineController.ExecuteTransition(GameState.RUNNING));
+                this.Invoke(0.5f, () => OnTutorialStarted());
                 return;
             }
         }

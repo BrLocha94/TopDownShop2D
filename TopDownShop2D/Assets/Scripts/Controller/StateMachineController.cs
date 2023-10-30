@@ -56,6 +56,12 @@ namespace Project.Core
                     break;
 
                 case GameState.INITIALIZING:
+                    if (nextState == GameState.TUTORIAL) return true;
+                    if (nextState == GameState.RUNNING) return true;
+                    break;
+
+                case GameState.TUTORIAL:
+                    if (nextState == GameState.HELP) return true;
                     if (nextState == GameState.RUNNING) return true;
                     break;
 

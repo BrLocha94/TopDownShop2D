@@ -1004,6 +1004,11 @@ MonoBehaviour:
     onDialogFinishCallback:
       m_PersistentCalls:
         m_Calls: []
+  tutorialDialog:
+    dialog: {fileID: 11400000, guid: 4b872a381c1a2e2458aa28aa7a306b85, type: 2}
+    onDialogFinishCallback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!4 &503780131
 Transform:
   m_ObjectHideFlags: 0

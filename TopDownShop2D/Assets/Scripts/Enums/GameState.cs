@@ -9,6 +9,7 @@ namespace Project.Enums
         SHOP,
         INVENTORY,
         SHOP_DIALOG,
-        HELP
+        HELP,
+        TUTORIAL
     }
 }
