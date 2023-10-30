@@ -118,6 +118,9 @@ namespace Project.UI.Windows
             equipButton.SetActive(false);
             unequipButton.SetActive(false);
 
+            OnHatEquiped(DataController.GetCurrentEquipedHat());
+            OnClothEquiped(DataController.GetCurrentEquipedCloth());
+
             currentState = WindowState.ANIMATING;
 
             currentPopRoutine = this.MoveRoutine(transform, transform.localPosition, onPosition,
