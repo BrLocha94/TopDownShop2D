@@ -17,5 +17,5 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 2f6d2c031c6d3754bae30bc1f2e741bb, type: 3}
   itemColor: {r: 1, g: 0, b: 0.13759041, a: 1}
   itemName: Red Cloth
-  itemPrice: 1
+  itemPrice: 10
   itemDescription: An charming simple red cloth

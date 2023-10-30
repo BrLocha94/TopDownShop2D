@@ -17,5 +17,5 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 0d07ff348a421da4ca10f93d054978e5, type: 3}
   itemColor: {r: 0, g: 0.15646362, b: 1, a: 1}
   itemName: Blue Cloth
-  itemPrice: 1
+  itemPrice: 10
   itemDescription: An charming simple blue cloth

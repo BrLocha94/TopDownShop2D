@@ -17,5 +17,5 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 64e386e2135e4594bb0405ca4432286f, type: 3}
   itemColor: {r: 1, g: 1, b: 1, a: 1}
   itemName: Hat
-  itemPrice: 1
+  itemPrice: 40
   itemDescription: Classic hat to use on special ocasions

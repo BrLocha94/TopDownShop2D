@@ -2009,6 +2009,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -985055020, guid: 23748c298f885bf4c89671f6d30f562b, type: 3}
+    - target: {fileID: 4011020590864877170, guid: 853bde94281d1f64ea8b56c3bc4cbe4c, type: 3}
+      propertyPath: showValue
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4376323372277054624, guid: 853bde94281d1f64ea8b56c3bc4cbe4c, type: 3}
       propertyPath: m_text
       value: Hat
@@ -2134,6 +2138,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -985055020, guid: 23748c298f885bf4c89671f6d30f562b, type: 3}
+    - target: {fileID: 4011020590864877170, guid: 853bde94281d1f64ea8b56c3bc4cbe4c, type: 3}
+      propertyPath: showValue
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4376323372277054624, guid: 853bde94281d1f64ea8b56c3bc4cbe4c, type: 3}
       propertyPath: m_text
       value: 'Cloth

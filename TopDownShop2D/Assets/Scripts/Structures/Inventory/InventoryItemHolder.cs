@@ -11,6 +11,9 @@ namespace Project.Structures.Inventory
         public Action<InventoryItemHolder> onItemRequested;
 
         [SerializeField]
+        private bool showValue = true;
+
+        [SerializeField]
         private Image targetImage;
         [SerializeField]
         private TextMeshProUGUI targetLabel;
@@ -35,7 +38,7 @@ namespace Project.Structures.Inventory
             targetImage.sprite = inventoryItem.item.GetItemIcon();
 
             if (targetLabel != null)
-                targetLabel.text = inventoryItem.item.GetItemName();
+                targetLabel.text = showValue ? "$" + inventoryItem.item.GetItemPrice().ToString() : inventoryItem.item.GetItemName();
         }
 
         public void RequestInventoryItem()

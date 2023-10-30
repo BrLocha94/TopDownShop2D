@@ -20,7 +20,8 @@ namespace Project.Core
         {
             //ADD GAME SAVE AND LOAD LOGIC
 
-            playerMoney = 1000;
+            playerMoney = 50;
+            onPlayerMoneyChanged?.Invoke(playerMoney);
             equipedCloth = null;
             equipedHat = null;
             playerInventory = new Inventory();

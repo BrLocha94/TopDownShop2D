@@ -17,5 +17,5 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 5c7f4134baae08848a4f07c0c34feab2, type: 3}
   itemColor: {r: 1, g: 0, b: 0.8241863, a: 1}
   itemName: Pink Cloth
-  itemPrice: 1
+  itemPrice: 10
   itemDescription: An charming simple pink cloth
