@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: GAME MASTER
   texts:
-  - Welcome to my prototype.
+  - Welcome to my prototype. Press E to advance Dialogs.
   - In this game, you can move around using the player.
   - You can buy, sell and equip items.
   - You can iteract with npcs and certain objects
