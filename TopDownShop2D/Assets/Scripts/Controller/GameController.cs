@@ -21,6 +21,8 @@ namespace Project.Core
         [SerializeField]
         private InventoryWindow inventoryWindow;
         [SerializeField]
+        private GameObject fade;
+        [SerializeField]
         private DialogHolder helpDialog;
 
         GameState currentGameState = GameState.NULL;
@@ -52,6 +54,8 @@ namespace Project.Core
             dialogWindow.SetDialog(helpDialog.dialog);
             dialogWindow.onDialogFinishEvent += OnHelpDialogFinishEvent;
 
+            fade.SetActive(true);
+
             StateMachineController.ExecuteTransition(GameState.HELP);
         }
 
@@ -64,6 +68,7 @@ namespace Project.Core
         private void OnHelpDialogWindowCloseEvent()
         {
             dialogWindow.onTurnOffFinishEvent -= OnHelpDialogWindowCloseEvent;
+            fade.SetActive(false);
             StateMachineController.ExecuteTransition(GameState.RUNNING);
         }
 
