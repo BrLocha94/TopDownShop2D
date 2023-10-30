@@ -20,6 +20,8 @@ namespace Project.Core
         private ShopWindow shopWindow;
         [SerializeField]
         private InventoryWindow inventoryWindow;
+        [SerializeField]
+        private DialogHolder helpDialog;
 
         GameState currentGameState = GameState.NULL;
 
@@ -40,6 +42,29 @@ namespace Project.Core
             dialogWindow.onTurnOffFinishEvent += OnDialogWindowCloseEvent;
 
             this.InvokeAfterFrame(() => StateMachineController.ExecuteTransition(GameState.INITIALIZING));
+        }
+
+        public void OnHelpClicked()
+        {
+            if (currentGameState != GameState.RUNNING)
+                return;
+
+            dialogWindow.SetDialog(helpDialog.dialog);
+            dialogWindow.onDialogFinishEvent += OnHelpDialogFinishEvent;
+
+            StateMachineController.ExecuteTransition(GameState.HELP);
+        }
+
+        private void OnHelpDialogFinishEvent()
+        {
+            dialogWindow.onTurnOffFinishEvent += OnHelpDialogWindowCloseEvent;
+            dialogWindow.TurnOff();
+        }
+
+        private void OnHelpDialogWindowCloseEvent()
+        {
+            dialogWindow.onTurnOffFinishEvent -= OnHelpDialogWindowCloseEvent;
+            StateMachineController.ExecuteTransition(GameState.RUNNING);
         }
 
         public void CloseDialog()

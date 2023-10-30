@@ -62,6 +62,11 @@ namespace Project.Core
                 case GameState.RUNNING:
                     if (nextState == GameState.DIALOG) return true;
                     if (nextState == GameState.INVENTORY) return true;
+                    if (nextState == GameState.HELP) return true;
+                    break;
+
+                case GameState.HELP:
+                    if (nextState == GameState.RUNNING) return true;
                     break;
 
                 case GameState.DIALOG:
