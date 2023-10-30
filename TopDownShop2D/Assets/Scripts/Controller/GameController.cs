@@ -16,6 +16,8 @@ namespace Project.Core
         private DialogWindow dialogWindow;
         [SerializeField]
         private ShopWindow shopWindow;
+        [SerializeField]
+        private InventoryWindow inventoryWindow;
 
         GameState currentGameState = GameState.NULL;
 
@@ -105,14 +107,13 @@ namespace Project.Core
             holder.onInventoryClosedCallback?.Invoke();
         }
 
-        /*
         public void OpenPlayerInventory()
         {
             // Cant open player inventory without and open dialog 
             if (currentGameState != GameState.RUNNING) return;
 
             cameraControler.ExecuteCameraMoveOn(() => {
-                inventoryWindow.SetGridInfo(DataController.Instance.GetPlayerInventory());
+                inventoryWindow.SetGridInfo(DataController.GetPlayerInventory());
                 inventoryWindow.onTurnOffFinishEvent += OnInventoryCloseCallback;
                 inventoryWindow.TurnOn();
             });
@@ -128,7 +129,6 @@ namespace Project.Core
                 StateMachineController.ExecuteTransition(GameState.RUNNING);
             });
         }
-        */
 
         public void ReceiveUpdate(GameState updatedValue)
         {
@@ -137,9 +137,19 @@ namespace Project.Core
             // Remove this to an loading screen logic
             if (currentGameState == GameState.INITIALIZING)
             {
+                DataController.Initialize();
                 this.Invoke(0.5f, () => StateMachineController.ExecuteTransition(GameState.RUNNING));
                 return;
             }
+        }
+
+        private void Update()
+        {
+            // Remove this to an centrilized input check logic
+            if (currentGameState != GameState.RUNNING) return;
+
+            if (Input.GetKeyDown(KeyCode.I))
+                OpenPlayerInventory();
         }
     }
 }

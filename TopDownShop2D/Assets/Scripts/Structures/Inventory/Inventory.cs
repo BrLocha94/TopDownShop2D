@@ -9,6 +9,11 @@ namespace Project.Structures.Inventory
 
         public List<InventoryItem> GetInventoryItems() => items;
 
+        public Inventory()
+        {
+            this.items = new List<InventoryItem>();
+        }
+
         public Inventory(List<InventoryItem> inventoryItems)
         {
             this.items = inventoryItems;
