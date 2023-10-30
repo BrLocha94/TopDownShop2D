@@ -2018,7 +2018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7441227648684282187, guid: 853bde94281d1f64ea8b56c3bc4cbe4c, type: 3}
       propertyPath: m_Name
-      value: inventoryItemHolder (1)
+      value: inventoryItemHolder-Hat
       objectReference: {fileID: 0}
     - target: {fileID: 7611750707582125506, guid: 853bde94281d1f64ea8b56c3bc4cbe4c, type: 3}
       propertyPath: m_Pivot.x
@@ -2145,7 +2145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7441227648684282187, guid: 853bde94281d1f64ea8b56c3bc4cbe4c, type: 3}
       propertyPath: m_Name
-      value: inventoryItemHolder
+      value: inventoryItemHolder-Cloth
       objectReference: {fileID: 0}
     - target: {fileID: 7611750707582125506, guid: 853bde94281d1f64ea8b56c3bc4cbe4c, type: 3}
       propertyPath: m_Pivot.x

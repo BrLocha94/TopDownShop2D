@@ -141,6 +141,8 @@ namespace Project.UI.Windows
 
         private void OnItemRequested(InventoryItemHolder holder)
         {
+            if (currentGameState != GameState.SHOP) return;
+
             if (currentSelectedItem == holder) return;
 
             if (currentSelectedItem != null)
@@ -282,7 +284,6 @@ namespace Project.UI.Windows
 
         private void Update()
         {
-            // Remove this to an centrilized input check logic
             if (currentGameState != GameState.SHOP) return;
 
             if (currentSelectedItem == null)

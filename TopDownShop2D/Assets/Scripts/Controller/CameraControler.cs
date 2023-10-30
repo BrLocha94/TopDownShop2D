@@ -28,6 +28,13 @@ namespace Project.Core
 
         Coroutine currentPopRoutine = null;
 
+        private Transform cameraTarget = null;
+
+        public void SetCameraTarget(Transform targetTransform)
+        {
+            cameraTarget = targetTransform;
+        }
+
         public void ExecuteCameraMoveOn(Action callback)
         {
             if (currentPopRoutine != null)
@@ -48,6 +55,15 @@ namespace Project.Core
 
             currentPopRoutine = this.MoveRoutine(cameraObject, cameraObject.transform.localPosition, offPosition,
                                                         turnOnCurve, turnOnTime, callback);
+        }
+
+        private void Update()
+        {
+            if (cameraTarget == null)
+                return;
+
+            Vector3 targetPosition = new Vector3(cameraTarget.position.x, cameraTarget.position.y, transform.position.z);
+            transform.position = targetPosition;
         }
     }
 }

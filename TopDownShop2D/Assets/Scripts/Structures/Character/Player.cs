@@ -4,6 +4,7 @@ namespace Project.Structures.Character
     using Project.Enums;
     using Project.Utils;
     using Project.Structures.Inventory;
+    using Project.Core;
 
     public class Player : CharacterBase
     {
@@ -15,6 +16,18 @@ namespace Project.Structures.Character
 
         private Direction currentDirection = Direction.NULL;
         private Vector2 moveVector = Vector2.zero;
+
+        private void Start()
+        {
+            DataController.onClothEquiped += OnClothEquiped;
+            DataController.onHatEquiped += OnHatEquiped;
+        }
+
+        private void OnDestroy()
+        {
+            DataController.onClothEquiped -= OnClothEquiped;
+            DataController.onHatEquiped -= OnHatEquiped;
+        }
 
         private void OnClothEquiped(Item item)
         {

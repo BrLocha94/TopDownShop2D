@@ -13,6 +13,8 @@ namespace Project.Core
         [SerializeField]
         private CameraControler cameraControler;
         [SerializeField]
+        private Transform playerTransform;
+        [SerializeField]
         private DialogWindow dialogWindow;
         [SerializeField]
         private ShopWindow shopWindow;
@@ -30,6 +32,7 @@ namespace Project.Core
             base.ExecuteOnAwake();
 
             StateMachineController.InitializeStateMachine();
+            cameraControler.SetCameraTarget(playerTransform);
         }
 
         private void Start()

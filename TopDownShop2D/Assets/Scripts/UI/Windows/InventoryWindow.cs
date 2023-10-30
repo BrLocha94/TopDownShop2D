@@ -1,14 +1,11 @@
 namespace Project.UI.Windows
 {
-    using System;
-    using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
     using Project.Enums;
     using Project.Structures.Inventory;
     using Project.Utils;
     using Project.Core;
-    using UnityEngine.UI;
     using TMPro;
 
     public class InventoryWindow : WindowBase
@@ -58,6 +55,18 @@ namespace Project.UI.Windows
         private Inventory inventory = null;
         private InventoryItemHolder currentSelectedItem = null;
         private InventoryItemHolder currentEquipSlotSelected = null;
+
+        private void OnEnable()
+        {
+            DataController.onClothEquiped += OnClothEquiped;
+            DataController.onHatEquiped += OnHatEquiped;
+        }
+
+        private void OnDisable()
+        {
+            DataController.onClothEquiped -= OnClothEquiped;
+            DataController.onHatEquiped -= OnHatEquiped;
+        }
 
         private void OnClothEquiped(Item item)
         {
@@ -228,20 +237,29 @@ namespace Project.UI.Windows
             holder.SelectInventoryItem();
 
             Item item = holder.inventoryItem.item;
-            itemDetailsText.text = $"{item.GetItemName()} : {item.GetItemDescription()}";
 
-            equipButton.SetActive(false);
-            unequipButton.SetActive(true);
+            if (item != null)
+            {
+                itemDetailsText.text = $"{item.GetItemName()} : {item.GetItemDescription()}";
+
+                equipButton.SetActive(false);
+                unequipButton.SetActive(true);
+            }
+            else
+            {
+                equipButton.SetActive(false);
+                unequipButton.SetActive(false);
+            }
         }
 
         public void OnEquipButtonPressed()
         {
-            //DataController.EquipItem(currentSelectedItem.inventoryItem.item);
+            DataController.EquipItem(currentSelectedItem.inventoryItem.item);
         }
 
         public void OnUnequipButtonPressed()
         {
-            //DataController.UnequipItem(currentEquipSlotSelected.inventoryItem.item.GetItemType());
+            DataController.UnequipItem(currentEquipSlotSelected.inventoryItem.item.GetItemType());
         }
     }
 }

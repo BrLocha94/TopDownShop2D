@@ -144,7 +144,9 @@ namespace Project.UI.Windows
                 if (forceSkip)
                 {
                     yield return new WaitWhile(() => isTyping);
-                    yield return new WaitForSeconds(1f);
+
+                    if(i != texts.Length - 1)
+                        yield return new WaitForSeconds(0.7f);
                 }
                 else
                     yield return new WaitWhile(() => !Input.GetKeyDown(KeyCode.E));
