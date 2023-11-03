@@ -49,6 +49,11 @@ namespace Project.Core
             this.InvokeAfterFrame(() => StateMachineController.ExecuteTransition(GameState.INITIALIZING));
         }
 
+        public void OnAplicationQuit()
+        {
+            Application.Quit();
+        }
+
         private void OnTutorialStarted()
         {
             if (currentGameState != GameState.INITIALIZING)
